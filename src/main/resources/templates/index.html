@@ -7,6 +7,7 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="/script.js"></script>
     <link rel="stylesheet" type="text/css" href="/style.css"/>
 </head>
 
@@ -36,14 +37,14 @@
                                             <label for="email" class="col-sm-2 control-label">
                                                 E-mail</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email1" placeholder="Your e-mail address" />
+                                                <input type="email" class="form-control" id="email1" placeholder="Your e-mail address" required="required"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1" class="col-sm-2 control-label">
                                                 Password</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Your password" />
+                                                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Your password" required="required"/>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -65,7 +66,7 @@
                                             <div class="col-sm-10">
                                                 <div class="row">
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control" placeholder="Your firstname" />
+                                                        <input type="text" class="form-control" placeholder="Your firstname" required="required"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,7 +77,7 @@
                                             <div class="col-sm-10">
                                                 <div class="row">
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control" placeholder="Your lastname" />
+                                                        <input type="text" class="form-control" placeholder="Your lastname" required="required"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,21 +86,22 @@
                                             <label for="email" class="col-sm-2 control-label">
                                                 E-mail</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email" placeholder="Your e-mail address" />
+                                                <input type="email" class="form-control" id="email" placeholder="Your e-mail address" required="required"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="password" class="col-sm-2 control-label">
+                                            <label for="pass1" class="col-sm-2 control-label">
                                                 Password</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="password" placeholder="Your password" />
+                                                <input type="password" name="pass1" class="form-control" id="pass1" placeholder="Your password" required="required"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="password2" class="col-sm-2 control-label">
+                                            <label for="pass2" class="col-sm-2 control-label">
                                                 Again</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="password2" placeholder="Your password again" />
+                                                <input type="password" name="pass2" class="form-control" id="pass2" onkeyup="checkPass(); return false;" placeholder="Your password again" required="required"/>
+                                                <span id="confirmMessage" class="confirmMessage"></span>
                                             </div>
                                         </div>
                                         <div class="row">
