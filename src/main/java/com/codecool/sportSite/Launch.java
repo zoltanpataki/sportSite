@@ -1,8 +1,11 @@
 package com.codecool.sportSite;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class Launch {
     public static void main(String[] args) {
-        Service service = new Service();
-        service.service();
+        SpringApplication.run(Launch.class, args);
     }
 }
