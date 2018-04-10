@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
 
 <head>
     <meta charset="UTF-8"/>
@@ -59,14 +59,14 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="Registration">
-                                    <form role="form" class="form-horizontal">
+                                    <form role="form" class="form-horizontal" action="#" th:action="@{/register}" th:object="${user}" method="post">
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">
                                                 Firstname</label>
                                             <div class="col-sm-10">
                                                 <div class="row">
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control" placeholder="Your firstname" required="required"/>
+                                                        <input type="text" class="form-control" th:field="*{firstName}" placeholder="Your firstname" required="required"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,7 +77,7 @@
                                             <div class="col-sm-10">
                                                 <div class="row">
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control" placeholder="Your lastname" required="required"/>
+                                                        <input type="text" class="form-control" th:field="*{lastName}" placeholder="Your lastname" required="required"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,14 +86,14 @@
                                             <label for="email" class="col-sm-2 control-label">
                                                 E-mail</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email" placeholder="Your e-mail address" required="required"/>
+                                                <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Your e-mail address" required="required"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="pass1" class="col-sm-2 control-label">
                                                 Password</label>
                                             <div class="col-sm-10">
-                                                <input type="password" name="pass1" class="form-control" id="pass1" placeholder="Your password" required="required"/>
+                                                <input type="password" name="pass1" class="form-control" th:field="*{password}" id="pass1" placeholder="Your password" required="required"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -101,7 +101,7 @@
                                                 Again</label>
                                             <div class="col-sm-10">
                                                 <input type="password" name="pass2" class="form-control" id="pass2" onkeyup="checkPass(); return false;" placeholder="Your password again" required="required"/>
-                                                <span id="confirmMessage" class="confirmMessage"></span>
+                                        <span id="confirmMessage" class="confirmMessage"></span>
                                             </div>
                                         </div>
                                         <div class="row">
