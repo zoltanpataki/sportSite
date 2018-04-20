@@ -25,6 +25,7 @@ public class ApiService {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<String> entity = new HttpEntity<String>(requestJson,headers);
+        System.out.println(entity.getBody());
         return restTemplate.postForEntity(url, entity, String.class);
     }
 }

@@ -17,6 +17,9 @@ import static sun.plugin2.util.PojoUtil.toJson;
 @SessionAttributes({"user"})
 public class UserController {
     private static final String REGISTER_URL = "http://sportsiteuser.herokuapp.com/register";
+    private static final String LOGIN_URL = "http://sportsiteuser.herokuapp.com/login";
+//    private static final String REGISTER_URL = "http://localhost:60001/register";
+//    private static final String LOGIN_URL = "http://localhost:60001/login";
 
     @Autowired
     private ApiService apiService;
@@ -27,15 +30,35 @@ public class UserController {
     }
 
     @PostMapping(value="/register")
-    public String registerUser(@RequestParam Map<String, String> body, User user) throws IOException {
-        System.out.println("reg started");
+    public String registerUser(User user) throws IOException {
         ResponseEntity<String> response = apiService.postJson(REGISTER_URL, toJson(user));
         HttpStatus status = response.getStatusCode();
         String restCall = response.getBody();
         System.out.println(restCall);
 
         if (status == HttpStatus.OK) {
-            return "Success. Body: " + restCall;
+            return "index";
+        }
+        return "index";
+    }
+
+    @PostMapping(value = "/login")
+    public String loginUser(User user) throws IOException {
+        String email = user.getEmail();
+        System.out.println(user.getEmail());
+        String password = user.getPassword();
+        System.out.println(user.getPassword());
+        String result = "{" + "\"email\": " + "\"" + email + "\"" + ",\"password\": " + "\"" + password + "\"" + "}";
+        System.out.println(result);
+
+        ResponseEntity<String> response = apiService.postJson(LOGIN_URL, result);
+        HttpStatus status = response.getStatusCode();
+        System.out.println(status);
+        String restCall = response.getBody();
+        System.out.println(restCall);
+
+        if (status == HttpStatus.OK) {
+            return "index";
         }
         return "index";
     }
