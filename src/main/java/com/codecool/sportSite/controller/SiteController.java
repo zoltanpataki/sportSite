@@ -16,7 +16,8 @@ public class SiteController {
     @Autowired
     ApiService apiService;
 
-    private static final String QUOTE_URL = "http://localhost:60002/new-quote";
+    private static final String QUOTE_URL = "http://sportsitequotes.herokuapp.com/new-quote";
+//    private static final String QUOTE_URL = "http://localhost:60002/new-quote";
 
     @GetMapping(value = "/")
     public String indexView(@ModelAttribute("user") User user, Model model) {
