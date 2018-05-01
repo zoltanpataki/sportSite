@@ -21,3 +21,50 @@ div#OR {
     z-index: 1;
     background: #DFDFDF;
 }
+
+body {
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-color: white;
+}
+
+body::after {
+    content: "";
+    background: url('http://www.desktopimages.org/pictures/2015/0630/1/alberto-contador-tinkoff-saxo-team-2015-tour-de-france-wallpaper-132076.jpg');
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+}
+
+.navbar{
+    background-color: #9191FF !important;
+}
+
+.sportnav{
+    color: black;
+    font-size: 150%;
+}
+
+.sportnav:hover{
+    color: black;
+}
+
+.quote{
+    text-align: left;
+    font-size: 100%;
+    margin-top: 2%;
+    margin-right: 5%;
+    margin-left: 70%;
+}
+
+.author{
+    text-align: right;
+    margin-right: 5%;
+    font-size: 90%;
+}
