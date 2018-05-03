@@ -158,11 +158,42 @@
             </div>
         </div>
     </div>
+    <div id="newSportEventModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <form action="/new-event" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"> Your Sport Event</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modalpic">
+                        <div class="modal-body">
+                            <p>Sport Category</p>
+                            <input name="category"/>
+                            <p>Sport Event</p>
+                            <input name="event"/>
+                            <p>Location</p>
+                            <input name="location"/>
+                            <p>Volume</p>
+                            <input name="volume"/>
+                            <p>Record or Place</p>
+                            <input name="place"/><br/><br/>
+                            <button id="uploadButton" type="button" class="btn btn-dark">Upload your photo</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" type="submit">Upload</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div>
         <p class="quote" th:utext="${newquote}"></p>
         <p class="author" th:utext="${quoteauthor}"></p>
     </div>
-    <div class="container">
+    <div class="container titles">
         <h1><span class="maintitles">Latest Sport News</span></h1>
         <div class="news" th:each="article, iterStat: ${articles}">
             <h4 th:attr="id='newstitleid' + ${iterStat.count}" class="newstitle" th:text="${article.get('title')}"></h4>
@@ -170,8 +201,14 @@
         </div>
     </div>
     <input id="pac-input" class="controls" type="text" placeholder="Search Box"/>
-    <h1 class="container"><span class="maintitles">Check sportevent locations</span></h1>
+    <h1 class="container titles"><span class="maintitles">Check sportevent locations</span></h1>
     <div id="map" class="container"></div>
+    <div class="container titles">
+        <h1><span class="maintitles">Share your sport experience</span></h1>
+        <h4 class="h4text">If you had a great enjoyment during a sport event, please excite others with sharing your experience.
+            You might allure people with showing an outstanding feeling surrounds events like yours.</h4>
+        <button id="eventmodal" type="button" class="btn btn-dark navbar-btn my-2 my-sm-0" data-toggle="modal" data-target="#newSportEventModal">Upload Sport Event</button>
+    </div>
     <script>
         function initAutocomplete() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -245,6 +282,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="/dom.js" defer="defer"></script>
+    <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <script src="/upload.js" defer="defer"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHXh7oItEGM-x9W8ERGhBgl-zrW6hDa6U&amp;libraries=places&amp;callback=initAutocomplete"
             defer="defer"></script>
 </body>

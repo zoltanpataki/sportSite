@@ -98,7 +98,7 @@ body::after {
         * element that contains the map. */
 #map {
     height: 50%;
-    width: 50%;
+    width: 75%;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
@@ -175,4 +175,29 @@ html, body {
 }
 #target {
     width: 345px;
+}
+
+#eventmodal,.h4text{
+    font-family: "Courier New", Courier, monospace;
+}
+
+.titles{
+    margin-top: 5%;
+}
+
+.modal-body{
+    font-family: "Courier New", Courier, monospace;
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('https://espngrantland.files.wordpress.com/2013/01/grant_g_rlewis1_sy_64011.jpg?w=750');
+}
+
+
+.modal-content{
+    background-color: #9191FF;
+}
+
+#eventmodal{
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-top: 5% !important;
+    margin-left: 25% !important;
 }
