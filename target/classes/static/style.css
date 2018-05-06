@@ -185,7 +185,7 @@ html, body {
     margin-top: 5%;
 }
 
-.modal-body{
+#modalpic{
     font-family: "Courier New", Courier, monospace;
     background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('https://espngrantland.files.wordpress.com/2013/01/grant_g_rlewis1_sy_64011.jpg?w=750');
 }
