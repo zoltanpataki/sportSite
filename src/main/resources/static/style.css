@@ -195,9 +195,18 @@ html, body {
     background-color: #9191FF;
 }
 
-#eventmodal{
+#eventmodal {
     padding-right: 5%;
     padding-left: 5%;
     margin-top: 5% !important;
     margin-left: 25% !important;
+}
+
+.modal-title {
+    color: black;
+    padding: 10px;
+}
+
+.oauth-child {
+    padding-top: 50px;
 }
