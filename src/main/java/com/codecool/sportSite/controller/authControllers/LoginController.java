@@ -13,7 +13,7 @@ public class LoginController {
     @Autowired
     AuthController controller;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/authLogin", method = RequestMethod.GET)
     protected String login(final HttpServletRequest req) {
         String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
         String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri);

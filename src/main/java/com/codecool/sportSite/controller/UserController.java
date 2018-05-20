@@ -1,5 +1,6 @@
 package com.codecool.sportSite.controller;
 
+import com.auth0.SessionUtils;
 import com.codecool.sportSite.model.User;
 import com.codecool.sportSite.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Map;
 
@@ -59,6 +61,21 @@ public class UserController {
 
         if (status == HttpStatus.OK) {
             return "index";
+        }
+        return "index";
+    }
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    protected String home(final Map<String, Object> model, final HttpServletRequest req, User user) {
+        String url = "https://sportsite.eu.auth0.com/userinfo";
+        String accessToken = (String) SessionUtils.get(req, "accessToken");
+        String idToken = (String) SessionUtils.get(req, "idToken");
+        apiService.getUserInfo(url, accessToken);
+
+        if (accessToken != null) {
+            model.put("userAccess", accessToken);
+        } else if (idToken != null) {
+            model.put("userId", idToken);
         }
         return "index";
     }

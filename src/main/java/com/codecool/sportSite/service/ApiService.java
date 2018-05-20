@@ -3,19 +3,13 @@ package com.codecool.sportSite.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class ApiService {
@@ -56,6 +50,16 @@ public class ApiService {
             newsList.add(singleNews);
         }
         return newsList;
+    }
+
+    public void getUserInfo(String url, String accessToken){
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        headers.set("Authorization", "Bearer " + accessToken);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        ResponseEntity<String> result = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        System.out.println("valami: " + result);
     }
 }
 

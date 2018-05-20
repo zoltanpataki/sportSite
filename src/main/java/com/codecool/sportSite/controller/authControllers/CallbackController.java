@@ -3,7 +3,7 @@ package com.codecool.sportSite.controller.authControllers;
 import com.auth0.IdentityVerificationException;
 import com.auth0.SessionUtils;
 import com.auth0.Tokens;
-import org.apache.catalina.Session;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 
 @Controller
 public class CallbackController {
@@ -30,7 +31,9 @@ public class CallbackController {
             Tokens tokens = controller.handle(req);
             SessionUtils.set(req, "accessToken", tokens.getAccessToken());
             SessionUtils.set(req, "idToken", tokens.getIdToken());
-            res.sendRedirect("/");
+            System.out.println(tokens.getAccessToken());
+            System.out.println(tokens.getIdToken());
+            res.sendRedirect("/home");
         } catch (IdentityVerificationException e) {
             logger.error(e.getMessage());
             res.sendRedirect("/login");
