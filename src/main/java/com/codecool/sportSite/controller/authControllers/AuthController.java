@@ -27,6 +27,7 @@ public class AuthController {
     public String buildAuthorizeUrl(HttpServletRequest request, String redirectUri) {
         return controller.buildAuthorizeUrl(request, redirectUri)
                 .withAudience(userInfoAudience)
+                .withScope("openid profile")
                 .build();
     }
 }

@@ -1,6 +1,7 @@
 package com.codecool.sportSite.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.*;
@@ -59,7 +60,19 @@ public class ApiService {
         headers.set("Authorization", "Bearer " + accessToken);
         HttpEntity<String> entity = new HttpEntity<>(headers);
         ResponseEntity<String> result = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-        System.out.println("valami: " + result);
+        String value = result.getBody();
+        value = StringUtils.substringBetween(value, "{", "}");
+        String[] keyValuePairs = value.split(",");
+        Map<String,String> userMap = new HashMap<>();
+
+        for(String pair : keyValuePairs)
+        {
+            String[] entry = pair.split(":", 2);
+            System.out.println(Arrays.toString(entry));
+            userMap.put(entry[0].trim().replace("\"", ""), entry[1].trim().replace("\"", ""));
+        }
+
+        System.out.println(userMap.get("name"));
     }
 }
 

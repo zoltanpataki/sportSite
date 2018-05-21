@@ -73,7 +73,7 @@ public class UserController {
         apiService.getUserInfo(url, accessToken);
 
         if (accessToken != null) {
-            model.put("userAccess", accessToken);
+            return "redirect:/";
         } else if (idToken != null) {
             model.put("userId", idToken);
         }
